@@ -7,6 +7,10 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  width = '500px';
+  marginTop = '10px';
+  marginLeft = '15px';
+  widthButton = '200px';
   mohamed: string = 'mohamed';
   constructor() {}
   get(f: any) {

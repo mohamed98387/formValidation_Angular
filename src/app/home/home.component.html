@@ -1,6 +1,9 @@
 <form #f="ngForm" (ngSubmit)="get(f)">
   <input
     class="form-control"
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
     type="text"
     name="firstname"
     #firstname="ngModel"
@@ -16,6 +19,9 @@
   </p>
 
   <input
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
     class="form-control"
     type="email"
     name="email"
@@ -39,6 +45,9 @@
   </p>
 
   <input
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
     class="form-control"
     type="text"
     name="lastname"
@@ -48,6 +57,9 @@
   />
 
   <input
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
     class="form-control"
     type="password"
     name="password"
@@ -70,6 +82,9 @@
     This password should be +8 caracter
   </p>
   <input
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
     class="form-control"
     type="password"
     name="confirmPassword"
@@ -87,5 +102,14 @@
   <p class="alert alert-danger" *ngIf="confirmPassword.value != password.value">
     This confirmPassword must be same with password
   </p>
-  <button type="submit">get</button>
+
+  <button
+    [style.width]="widthButton"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
+    type="submit"
+    class="btn btn-primary"
+  >
+    submit
+  </button>
 </form>
