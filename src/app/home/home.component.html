@@ -17,7 +17,24 @@
   >
     The first name is required
   </p>
-
+  <input
+    [style.width]="width"
+    [style.marginTop]="marginTop"
+    [style.marginLeft]="marginLeft"
+    class="form-control"
+    type="text"
+    name="lastname"
+    #lastname="ngModel"
+    placeholder="lastname"
+    required
+    ngModel
+  />
+  <p
+    class="alert alert-danger"
+    *ngIf="lastname.errors?.['required'] && lastname.touched"
+  >
+    The lastname name is required
+  </p>
   <input
     [style.width]="width"
     [style.marginTop]="marginTop"
@@ -43,18 +60,6 @@
   >
     This input should email
   </p>
-
-  <input
-    [style.width]="width"
-    [style.marginTop]="marginTop"
-    [style.marginLeft]="marginLeft"
-    class="form-control"
-    type="text"
-    name="lastname"
-    #lastname="ngModel"
-    placeholder="lastname"
-    ngModel
-  />
 
   <input
     [style.width]="width"
@@ -90,17 +95,18 @@
     name="confirmPassword"
     #confirmPassword="ngModel"
     placeholder="confirmPassword"
+    minlength="8"
     ngModel
     required
   />
   <p
     class="alert alert-danger"
-    *ngIf="confirmPassword.errors?.['required']  && confirmPassword.touched"
+    *ngIf="confirmPassword.errors?.['required'] && confirmPassword.errors?.['minlength']  && confirmPassword.touched"
   >
     This confirmPassword is required
   </p>
   <p class="alert alert-danger" *ngIf="confirmPassword.value != password.value">
-    This confirmPassword must be same with password
+    password and comfirPassword must be equal
   </p>
 
   <button
@@ -109,6 +115,7 @@
     [style.marginLeft]="marginLeft"
     type="submit"
     class="btn btn-primary"
+    [disabled]="f.invalid"
   >
     submit
   </button>
